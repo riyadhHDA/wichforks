@@ -26,6 +26,7 @@ This page keeps the technical claims that affect which fork or build to use. For
 | Lichii 93 | 6 Nov | AMD shader and Vulkan synchronization fixes; not verified in affected AMD gameplay |
 | Lichii 94/95 | 7 Nov | OoT foliage, white flashes, terrain, reticle and shader fixes; limited gameplay testing |
 | Eglantine daily | 7 Nov | OoT startup, rendering and recommended-settings work; AMD compute fixes; no independent OoT test yet |
+| CheezerWheezer 6 | 7 Nov | Lichii "amd-superior" branch; targeted AMD fixes (NaN-safe math, blend fallbacks, pipeline resets) and precompiled 76K shader cache preloading |
 
 Dates are the day the build was discussed, not necessarily the release date. A build that is stable for one GPU can fail on another.
 
@@ -96,7 +97,7 @@ These are single-user reports from build 202 and the 0.1.0-rc1 build on 4 and 5 
 | Star Fox | 202, rc1 | Infinite loading |
 | Yoshi | 202, rc1 | Choppy but loads; rc1 has a green glitch at 45-60 FPS, skips the cutscene and hard-crashes on Plasma and X11 |
 | Fire Emblem Fortune's Weave | 202, rc1 | Black screen and crash; on AMD the crash log shows a DLSS attempt and a failed FSR fallback |
-| Zelda: OoT remake | Lichii 75 to 94/95; Eglantine daily | Lichii build 88+ is the current pick. Build 75 got 12-22 FPS on a 5900X and RTX 3080. Build 88's 60 FPS claims are high-end RTX 4080/5080/5090 opening-area results; a low-end i3-10100 and RTX 3060 got 20-24. Build 94/95 fixes foliage, white flashes, terrain and shaders, with limited testing. Eglantine daily builds have OoT fixes but no independent test. Radeon black screens and crashes remain. Frizti v1 adds visual fixes on Windows. Orchid v0.7.4 fixes exposure, fog and vegetation, but OoT performance there is unmeasured |
+| Zelda: OoT remake | Lichii 75 to 94/95; CheezerWheezer 6; Eglantine daily | Lichii build 88+ is the current pick for NVIDIA; CheezerWheezer build 6 (amd-superior) is the experimental pick for AMD to prevent driver crashes. Build 75 got 12-22 FPS on a 5900X and RTX 3080. Build 88's 60 FPS claims are high-end RTX 4080/5080/5090 opening-area results; a low-end i3-10100 and RTX 3060 got 20-24. Build 94/95 fixes foliage, white flashes, terrain and shaders. Community guides recommend precompiled 76K shader cache and EDEN_NX2_PRELOAD_ALL_PIPELINES=1 to eliminate stutter. Frizti v1 adds visual fixes on Windows. Orchid v0.7.4 fixes exposure, fog and vegetation. See docs/OOT.md |
 | Orbitals | 202, rc1 | Black screen; 3-10 FPS with no shader-building indicator |
 | Super Mario Bros. Wonder | NUP | DLC did not work after converting the game to NUP |
 | Yoshi | 3 Nov | Full game boots, not just the demo |

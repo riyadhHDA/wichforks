@@ -26,7 +26,9 @@ The page is ordered by what people ask first: which fork to use, what has been t
 | Pokémon Pokopia | [notsapinho/Eglantine](https://github.com/notsapinho/Eglantine/releases) or [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases) | Both list Pokopia as a target; notsapinho calls it playable |
 | Splatoon Raiders | [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases) | Textbox, texture and HDR fixes |
 | Online play (MKW, Splatoon Raiders) | [Droplet](https://gitlab.com/seighttt/droplet/-/releases) | Private Reservoir servers for online and LAN; emulators only |
-| Zelda OoT remake, Star Fox, Mario Tennis | [**zortos293/Lichii**](https://github.com/zortos293/Lichii/releases) ★ | Lichii for all three; Frizti v1 for OoT visual fixes on Windows |
+| Zelda OoT remake (NVIDIA) | [**zortos293/Lichii**](https://github.com/zortos293/Lichii/releases) ★ or [**Fritchii**](https://github.com/Frizti/Fritchii/releases) | Lichii build 88+; Fritchii v4.1 (formerly Frizti) for visual fixes, water/lighting fixes and auto-updates on Windows; sync shaders with [Lichii Shader Sync](https://github.com/oceanpacificpeace/lichii-shader-sync/) |
+| Zelda OoT remake (AMD) | [CheezerWheezer/Lichii](https://github.com/CheezerWheezer/Lichii/releases) or [Orchid](https://github.com/MythosOfs/Orchid/releases) | CheezerWheezer `amd-superior` for AMD crash/blend fixes; Orchid v0.7.4 for fog/exposure; sync shaders with [Lichii Shader Sync](https://github.com/oceanpacificpeace/lichii-shader-sync/) |
+| Star Fox, Mario Tennis | [**zortos293/Lichii**](https://github.com/zortos293/Lichii/releases) ★ | Community-reported compatibility pick |
 | Hyrule Warriors: Age of Imprisonment | [Djihads80 build 202+](https://github.com/Djihads80/Eglantine/releases) or [rdenno](https://github.com/rdenno/Eglantine/releases) | Build 202 was the Hyrule Warriors fix set (46-49 FPS median reported) |
 | Android 13+, Snapdragon 12 GB+ | [Banana Native](https://github.com/moceure/BananaNative/releases) | Native port, not an emulator; DK Bananza works, Pokopia about 60 FPS, MKW in progress |
 | macOS, native port | [nxnative](https://github.com/seedds/nxnative) | Switch 2 games as Mac apps from a NUP; no emulator; source-only build |
@@ -66,12 +68,13 @@ flowchart TD
     E -->|AMD| F{Main game?}
     F -->|Mario Kart World| G[SmileyTatsu]
     F -->|Donkey Kong Bananza| G2[Selevet or PokeDinner]
+    F -->|OoT remake| G3["CheezerWheezer (amd-superior) or Orchid"]
     F -->|Everything else| H[Orchid]
     E -->|NVIDIA| I{Main game?}
     I -->|Mario Kart World| J[SmileyTatsu]
     I -->|Bananza| K[Selevet or PokeDinner]
     I -->|Pokopia / Splatoon| K2[PokeDinner or notsapinho]
-    I -->|OoT remake| L[Lichii build 88+ or Frizti]
+    I -->|OoT remake| L["Lichii build 88+ or Fritchii"]
     I -->|Star Fox / Tennis| L2[Lichii]
     I -->|Hyrule Warriors| M[Djihads80 build 202+ or rdenno]
     I -->|Everything else| N[Djihads80 Eglantine]
@@ -166,17 +169,22 @@ Lichii keeps Eden/Eglantine data folders, so saves are shared. The shader cache 
 
 **Lichii** is the pick if you want OoT remake or the other titles attributed to it, and you have a fast CPU. Use build 88 or newer; build 94/95 has the latest visual fixes. On Windows, Frizti v1 adds another set of OoT visual fixes; see the next section. Before you download: check the release or commit notes of the build, and remember that Actions artifacts are not releases. Keep the zip if a build works. The project still uses the historical "Eglantine" name internally.
 
-### Frizti/Lichii: Ocarina of Time visual fixes
+### Fritchii (Frizti): Ocarina of Time visual fixes and updates
 
 Windows x64 only. GPL-3.0, source in repo. Community-reported performance.
 
-A fork of zortos293/Lichii focused on OoT. Frizti v1 (5 Nov 2026) removes the one-frame white flashes on Link and the scene, adds a built-in Max Resolution patch so the 3D no longer sits at the 854x480 dynamic-resolution floor, and includes culling, vegetation, grass and fog fixes.
+Formerly known as Frizti/Lichii, rebranded to **Fritchii** in v4 (now [Fritchii v4.1](https://github.com/Frizti/Fritchii/releases), 8 Nov 2026). It is a specialized Windows fork of zortos293/Lichii focused on OoT remake.
 
-It is Windows x64 only; there is no Linux or macOS build. The game is capped at 30 FPS without the Dynamic FPS mod, and shader compilation causes heavy stutter. Build 88 bundles the mod, but frame pacing and game speed are not fully verified. AMD users report black screens and GPU driver crashes; one community workaround is to add `EDEN_NX2_REJECT_HASH=e40561a7a0f7a0b3` to `%APPDATA%\eden\nx2_switches.txt` and restart.
+Key additions in Fritchii v4/v4.1:
+- **Auto updates:** In-app updates with SHA-256 validation and one-click rollback to the previous version.
+- **Lighting and visual fixes:** Eliminates water flicker across Hyrule (fixing incorrect light buffer texture bindings), fixes overexposure in Hyrule Field, prevents grass and near foliage from disappearing, and fixes Kakariko graveyard geometry.
+- **AMD stability ports:** Incorporates AMD fixes from the CheezerWheezer fork survey (NaN-safe min/max, dynamic blend state fallbacks, pipeline cache driver reset on rejection).
+- **Experimental NVIDIA DLSS:** Option to use NVIDIA DLSS in place of the game's internal DLSS, plus an option to disable game sharpening AA.
+- Bundled Dark's Dynamic FPS mod and built-in Max Resolution patch.
 
-Frizti's performance work is now part of Lichii build 88: cached storage-buffer bindings, direct uniform uploads, batched readbacks and Dark's Dynamic FPS mod. Lichii credits Frizti for those ports, and some 60 FPS OoT footage comes from Frizti's own builds. Frizti v1 remains the Windows visual-fix build, not the main performance fork.
+It is Windows x64 only. Settings, saves, and shader caches are fully shared with Lichii and older Frizti builds.
 
-Pick it for OoT on Windows if visuals matter more than cross-platform support. Use Lichii build 88 or newer for Linux or macOS, or Orchid v0.7.4 for its exposure and fog work.
+Pick it for OoT on Windows if you want the cleanest visuals and automated updates. Use Lichii build 88 or newer for Linux or macOS, or Orchid v0.7.4 for its exposure and fog work. For AMD GPUs, community testing recommends the experimental CheezerWheezer/Lichii fork (`amd-superior`) alongside preloading the shared 76K shader cache and enabling `EDEN_NX2_PRELOAD_ALL_PIPELINES=1`; see the [OoT notes](docs/OOT.md).
 
 ### Droplet: private online servers
 
@@ -263,6 +271,7 @@ Lower confidence, but relevant depending on hardware:
 | Fork | Platform | Why it exists | Confidence |
 |---|---|---|---|
 | [selevet-eglantine](https://github.com/sylvieistaken/selevet-eglantine/releases) | Windows/Linux | Zen 3-tuned, PGO + ThinLTO, faster GPU mapping. 121 stars. Build 6 (3 Nov). | Documented |
+| [CheezerWheezer/Lichii](https://github.com/CheezerWheezer/Lichii/releases) | Windows/Linux/macOS | AMD experimental Lichii fork (`amd-superior`), targeting OoT AMD driver crashes and NaN-safe shader operations. 15 stars. Build 6 (7 Nov). | Community-reported |
 | [EddizEge/Anka](https://github.com/EddizEge/Anka/releases) | Windows 10/11 | New DK-focused performance fork. 7 stars, one release; the DK result is a single-PC self-report. | Documented |
 | [heydemoura/EglantinePS5](https://github.com/heydemoura/EglantinePS5) | PS5 | Experimental PS5 port. 195 stars. GPL-3.0. Source only, no release assets at check. | Community-reported |
 | [astralbeexd/Eglantine-3060Ti-16GB](https://github.com/astralbeexd/Eglantine-3060Ti-16GB) | Windows | Patch set plus a binary release, not a full source tree. 11 stars. | Unverified |
@@ -281,7 +290,7 @@ A missing license or a source zip without a source tree matters: ZendNevs declar
 | Pokémon Pokopia | notsapinho | PokeDinner | notsapinho: 120fps mod and 80+ FPS on an RTX 4060 Mobile; PokeDinner for invisible-item and sky fixes |
 | Splatoon Raiders | PokeDinner | Djihads80; notsapinho | PokeDinner textbox, texture and HDR fixes; upstream says variable performance |
 | Splatoon Raiders (online) | Droplet + Reservoir | PokeDinner for offline | Private NPLN replacement; sky bug after beach load |
-| Zelda: OoT remake | **Lichii build-88+ or Frizti v1** | Orchid v0.7.4; PokeDinner | Lichii for cross-platform; Frizti v1 for OoT visual fixes on Windows; Dynamic FPS mod, frame pacing and shader stutter still need testing |
+| Zelda: OoT remake | **NVIDIA: Lichii build-88+ or Fritchii v4.1**<br>**AMD: CheezerWheezer/Lichii (experimental) or Orchid** | Djihads80; PokeDinner | NVIDIA: Lichii/Fritchii (formerly Frizti); AMD: CheezerWheezer `amd-superior` build 6+ or Orchid v0.7.4; sync shaders with [Lichii Shader Sync](https://github.com/oceanpacificpeace/lichii-shader-sync/) and configure `nx2_switches` pipeline preload |
 | Star Fox | **Lichii** | Djihads80 | Community-reported |
 | Mario Tennis Fever | **Lichii** | Orchid | Community-reported; Orchid measured 60 FPS |
 | Hyrule Warriors: AoI | Djihads80 build 202+ | rdenno nx2-merged | Build 202 fix set; 46-49 FPS median reported |
@@ -297,6 +306,8 @@ For MKW settings and the full performance table, see [Mario Kart World notes](do
 For DK settings and build notes, see [Donkey Kong Bananza notes](docs/DONKEY-KONG.md).
 
 For Pokopia settings and workarounds, see [Pokopia notes](docs/POKOPIA.md).
+
+For OoT settings, precompiled shader installation and the AMD/NVIDIA experimental guide, see [Ocarina of Time notes](docs/OOT.md).
 
 ---
 
@@ -325,7 +336,7 @@ Reports are public. Don't post keys, firmware, ROMs or personal information.
 1. Bring your own dump. You need your own game dump, `prod.keys` and firmware. None of these are included in any fork.
 2. Update drivers first. Use current Vulkan drivers: Adrenalin on Windows AMD, Mesa RADV (git) on Linux AMD, and the current NVIDIA driver on NVIDIA.
 3. Check RAM and pagefile. 16 GB RAM is a practical floor; PokeDinner asks for 12 GB DRAM and a 32 GB pagefile or swap. Close the browser.
-4. Warm the shader cache. The first minutes stutter while pipelines compile. Never benchmark cold, and don't judge a build on the first launch.
+4. Warm or sync the shader cache. The first minutes stutter while pipelines compile. Never benchmark cold, and don't judge a build on the first launch. For titles with heavy pipeline compilation like Zelda: OoT remake, use [Lichii Shader Sync](https://github.com/oceanpacificpeace/lichii-shader-sync/) to automatically download and update verified shader packs, and configure pipeline preloading (`EDEN_NX2_PRELOAD_ALL_PIPELINES=1`).
 5. Change one thing at a time: build, driver or settings. Then retest the same save and route.
 6. Keep a known-good build. Zip the working folder before updating. Builds land hourly, and regressions are normal.
 7. Prefer repo releases over repacks. Random "optimized" bundles are the main malware vector in this scene. Builds from GPL repos should have source available.
@@ -397,7 +408,9 @@ All links checked 5-7 Nov 2026. Release metadata read from the GitHub and Forgej
 - Game-specific lab: [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork), [releases](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases)
 - Pokopia build: [notsapinho/Eglantine](https://github.com/notsapinho/Eglantine), [releases](https://github.com/notsapinho/Eglantine/releases)
 - Game patches: [zortos293/Lichii](https://github.com/zortos293/Lichii), [releases](https://github.com/zortos293/Lichii/releases), [public reports](https://lichii.zortos.me/reports), [local summary](docs/LICHII-REPORTS.md)
-- OoT visual fixes: [Frizti/Lichii](https://github.com/Frizti/Lichii), [frizti-v1](https://github.com/Frizti/Lichii/releases/tag/frizti-v1)
+- OoT visual fixes: [Fritchii](https://github.com/Frizti/Fritchii), [releases](https://github.com/Frizti/Fritchii/releases) (formerly Frizti/Lichii)
+- AMD OoT experimental fork: [CheezerWheezer/Lichii](https://github.com/CheezerWheezer/Lichii), [releases](https://github.com/CheezerWheezer/Lichii/releases)
+- Shader cache sync tool: [oceanpacificpeace/lichii-shader-sync](https://github.com/oceanpacificpeace/lichii-shader-sync), [releases](https://github.com/oceanpacificpeace/lichii-shader-sync/releases)
 - Private online: [Droplet](https://gitlab.com/seighttt/droplet), [releases](https://gitlab.com/seighttt/droplet/-/releases), [Reservoir server branch](https://gitlab.com/seighttt/droplet/-/tree/server)
 - Hyrule Warriors and nx2-merged: [rdenno/Eglantine](https://github.com/rdenno/Eglantine), [releases](https://github.com/rdenno/Eglantine/releases)
 - Android: [Banana Native](https://github.com/moceure/BananaNative), [releases](https://github.com/moceure/BananaNative/releases). The old [eden-nx2-android](https://git.eden-emu.dev/moceure/eden-nx2-android) is unmaintained and points here.
@@ -448,3 +461,6 @@ python -I scripts/reports.py validate
 | 2026-11-06 | Added Anka, a new Windows performance fork, with its self-reported DK result, source audit and caveats. Not a first pick. |
 | 2026-11-07 | Updated Lichii to build 88+ and build 94/95, added the Eglantine OoT and rc1 regressions, and added nxnative for macOS native builds. |
 | 2026-11-07 | Scraped 202 public Lichii compatibility reports into data/lichii-reports.json, with a generated summary page and CI check. |
+| 2026-11-08 | Added OoT remake experimental AMD guide (CheezerWheezer `amd-superior`), precompiled shader cache installation, pipeline preloading, and `docs/OOT.md`. |
+| 2026-11-08 | Updated "Which fork should I use?" and decision tree with OoT NVIDIA/AMD split, and added Lichii Shader Sync. |
+| 2026-11-08 | Documented Frizti/Lichii rebrand to Fritchii (v4.1), with in-app updater, water flicker and lighting fixes, DLSS for OoT, and updated repository links. |

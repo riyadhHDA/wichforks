@@ -11,7 +11,7 @@ Checked 7 Nov 2026 against the GitHub, Forgejo and GitLab APIs. A project is aud
 | [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork) | GPL-3.0 | Yes, LICENSE.txt and src | Binaries | Active Forgejo | Auditable |
 | [notsapinho/Eglantine](https://github.com/notsapinho/Eglantine) | GPL-3.0 | Yes, src and CMakeLists | Binaries | Active | Auditable |
 | [zortos293/Lichii](https://github.com/zortos293/Lichii) | GPL-3.0 | Yes, src and CMakeLists | Binaries (build 94/95) and Actions artifacts | Active | Auditable |
-| [Frizti/Lichii](https://github.com/Frizti/Lichii) | GPL-3.0 | Yes, src and CMakeLists | Windows binaries | Active fork | Auditable |
+| [Fritchii (Frizti)](https://github.com/Frizti/Fritchii) | GPL-3.0 | Yes, src and CMakeLists | Windows binaries | Active fork (formerly Frizti/Lichii) | Auditable |
 | [rdenno/Eglantine](https://github.com/rdenno/Eglantine) | GPL-3.0 | Yes, src and CMakeLists | Binaries | Small fork | Auditable |
 | [Selevet Eglantine](https://github.com/sylvieistaken/selevet-eglantine) | GPL-3.0 | Yes, src and CMakeLists | Binaries | Tuned fork | Auditable |
 | [EglantinePS5](https://github.com/heydemoura/EglantinePS5) | GPL-3.0 | Yes, src and Makefile | No release assets at check | Port | Auditable source |
@@ -31,7 +31,7 @@ Checked 7 Nov 2026 against the GitHub, Forgejo and GitLab APIs. A project is aud
 
 ## What this means for the guide
 
-All first picks publish source in the repository. Most are GPL-3.0: SmileyTatsu for Mario Kart World, Selevet or PokeDinner for Donkey Kong Bananza, notsapinho for Pokopia, Lichii, Frizti or Orchid for Ocarina of Time, and Droplet for online play. Banana Native covers Android as a native port, not an emulator; its repo is MIT while its release notes say GPL-3.0-or-later. nxnative covers macOS the same way: MIT source, no prebuilt release, and not an emulator.
+All first picks publish source in the repository. Most are GPL-3.0: SmileyTatsu for Mario Kart World, Selevet or PokeDinner for Donkey Kong Bananza, notsapinho for Pokopia, Lichii, Fritchii or Orchid for Ocarina of Time, and Droplet for online play. Banana Native covers Android as a native port, not an emulator; its repo is MIT while its release notes say GPL-3.0-or-later. nxnative covers macOS the same way: MIT source, no prebuilt release, and not an emulator.
 
 Lichii now publishes numbered releases again, with build 94/95 assets for Windows, Linux and macOS. Its README still points downloads to the old zortos293/Eglantine releases page and asks for crypto donations. Use the Lichii releases tab and verify any donation address from the repository itself. Its public report hub is the largest single source of OoT reports: 202 public reports were scraped on 7 Nov and summarized in [Lichii reports](LICHII-REPORTS.md).
 

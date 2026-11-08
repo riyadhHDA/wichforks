@@ -76,7 +76,7 @@ A few representative rows:
 
 ## Zelda: Ocarina of Time remake
 
-The field reports below use Lichii build 80 unless noted. Build 88 or newer is the current recommendation, but most community numbers still come from build 80. The larger public Lichii dataset is in [Lichii reports](LICHII-REPORTS.md): 155 of its 202 reports are OoT.
+The field reports below use Lichii build 80 unless noted. Build 88 or newer is the current recommendation, but most community numbers still come from build 80. For the complete experimental setup guide (including AMD CheezerWheezer builds, precompiled 76K shader cache installation, and nx2_switches configuration), see [Ocarina of Time notes](OOT.md). The larger public Lichii dataset is in [Lichii reports](LICHII-REPORTS.md): 155 of its 202 reports are OoT.
 
 | Build | CPU | GPU | RAM | Performance | Notes | Source |
 |---|---|---|---|---|---|---|
@@ -132,5 +132,6 @@ Most community reports do not include the GPU driver, game version or 1% lows. A
 - [Mario Kart World notes](MKW.md) for the full MKW table, settings and build notes.
 - [Donkey Kong Bananza notes](DONKEY-KONG.md) for the full DK table, 30 FPS and DynamicFPS workarounds, and terrain issues.
 - [Pokopia notes](POKOPIA.md) for the full Pokopia table, black sky and 120fps workarounds, and memory limits.
+- [Ocarina of Time notes](OOT.md) for the full OoT setup guide, 76K shader cache preloading, nx2_switches configuration and AMD/NVIDIA builds.
 - [Orchid README](https://github.com/MythosOfs/Orchid) for the documented 5800X3D and RX 9070 XT results.
 - [Orchid releases](https://github.com/MythosOfs/Orchid/releases) for the OoT exposure, fog and vegetation fixes.
