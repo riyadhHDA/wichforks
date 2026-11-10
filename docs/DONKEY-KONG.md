@@ -74,7 +74,7 @@ These reports are missing the CPU, GPU, RAM or build. Treat them as rough signal
 - Build 212 can crash on GPU Fast during the first cutscene and at random when switching from Accurate. One Ryzen 7 3700X and RTX 3060 user on Arch Linux reported it.
 - Orchid on an RX 6950 XT works but freezes occasionally; one user preferred it to ZendNevs on Linux.
 - Memory leaks and OOM on early builds and the Zortos fork.
-- Frame drops during destruction and in large rooms, even when standing still is fine.
+- Frame drops during destruction and in large rooms, even though standing still is fine.
 - Some users see 60 FPS in tunnels or small rooms and 20-30 FPS in open areas, so area matters more than the average.
 
 ## Sources
