@@ -8,7 +8,7 @@ These are user reports, not benchmarks. A build that works on one GPU can show m
 
 - Game speed is tied to frame rate. Below 30 FPS the game runs in slow motion; above 30 it can run at double speed. The 30 FPS cap, slow mode, PokeDinner 2.5's 30 FPS option, or the DynamicFPS mod are the workarounds.
 - DynamicFPS is a separate mod made by ZendNevs (DynamicFPS.-DonkeyKong-Bananza v1.1). It fixes the speed changes for some users but not all, and one user notes it needs the matching game update.
-- Selevet performance build 3 and 4 are popular with a 30 FPS cap. One 5700X3D and RTX 5070 Ti user got 30 FPS with 60 FPS smooth motion, at the default 0.5x resolution; 1x also worked.
+- Selevet performance builds 3 and 4 are popular with a 30 FPS cap. One 5700X3D and RTX 5070 Ti user got 30 FPS with 60 FPS smooth motion, at the default 0.5x resolution; 1x also worked.
 - PokeDinner 2.5 with the 30 FPS option was the best result for one Ryzen 5 9600X and RX 6800 user: no glitches, smooth frame rate and correct speed.
 - ZendNevs v2.0.3 was called the best AMD build by one user, and v2.0.5 got positive comments. The repo has only 2 commits and no license, so treat its release-note results as self-reported. Recent independent reports favor Selevet perf 3/4 and PokeDinner 2.5.
 - Terrain is a known AMD problem. OpenGL renders no terrain, Vulkan renders it but crashes more. PokeDinner, Zortos and Selevet differ in how much terrain they show.
