@@ -256,6 +256,18 @@ It needs your own dump as a folder, with base, updates and DLC. No keys or firmw
 
 Pick it if you have a recent Snapdragon phone and want native performance without an emulator. The catch: experimental, one tested phone, a black sky in Pokopia, texture glitches in DK, graphics problems in MKW, and heavy heating.
 
+### Fortune's Eden: Fire Emblem Fortune's Weave build
+
+Windows 10/11 x64, NVIDIA/AMD/Intel through Vulkan. GPL-3.0; full source with history on the repo's [`source` branch](https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch/tree/source), and each release as a `source-v<version>` branch and `source.zip`.
+
+Fortune's Eden is a portable Windows build made for one game, Fire Emblem Fortune's Weave. It is based on Duck912's eden-ns2-fe and xDarkWindx's eden-fefw 1.12, with the NUP loader and DLSS work from Eglantine. Latest at check: v1.6.7.4 (11 Nov 2026), 131 stars. It plays loose files or a `.nup`.
+
+The upscaler replaces the game's own DLSS pass: AMD FSR 3.1 by default on any GPU, AMD FSR 4 on RX 6000/7000/9000, or NVIDIA DLSS on RTX cards (NVIDIA's files are fetched from NVIDIA, not bundled). Quality modes run from Native (DLAA) to Performance. It decodes the game's AV1 cutscenes with dav1d across all CPU threads, has HDR10 output, an optional 21:9 ultrawide patch and a built-in 60 FPS mode, off by default because the game runs at 30 FPS on Switch 2. In v1.6.7.4 that mode follows the real frame rate between 30 and 60 FPS instead of forcing 60, so a PC that can't hold 60 doesn't play in slow motion, and a Performance page can lighten the game's reflections, ambient occlusion and crowd detail. v1.6.7.3 added a mouse mode: the PC mouse drives the game's Joy-Con mouse cursor, with its own control set and sensitivity. Releases are PGO builds trained on the game, and a built-in updater checks each download against the release SHA-256. It needs 16 GB RAM and a large pagefile for the 12 GB memory layout.
+
+Independent reports are on the project's issue tracker: v1.5 reached 30 FPS at startup on a Ryzen 7 8700G / RTX 4060 ([#13](https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch/issues/13)), and with the 60 FPS patch a Ryzen 7 9800X3D / RTX 5070 Ti held 60 FPS outside one heavy area, where it dropped to about 45 ([#27](https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch/issues/27)). That reporter found the cause, a mistranslated shader instruction; with the fix, now in v1.6.7.3, their 20-minute log at DLSS Native held 60 FPS in 89 of 103 ten-second windows.
+
+Caveats: one game only, and Windows only. Busy scenes still drop on mid-range GPUs (an RTX 2080 Ti reports large drops on one route, [#21](https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch/issues/21)), one heavy AV1 cutscene still slows down on some CPUs ([#22](https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch/issues/22)), and some players reported a gradual slowdown over an hour or two that a game restart clears; v1.6.7.4 fixes video memory creeping up over a session, which the maintainer links to it, not yet confirmed by players at check. The maintainer releases often, so check the build tag in any report.
+
 ### Other forks worth knowing
 
 Lower confidence, but relevant depending on hardware:
@@ -286,7 +298,7 @@ A missing license or a source zip without a source tree matters: ZendNevs declar
 | Mario Tennis Fever | **Lichii** | Orchid | Community-reported; Orchid measured 60 FPS |
 | Hyrule Warriors: AoI | Djihads80 build 202+ | rdenno nx2-merged | Build 202 fix set; 46-49 FPS median reported |
 | Super Mario Bros. Wonder | Orchid | Djihads80 | Orchid reports 60 FPS (Switch 1 title) |
-| Fire Emblem Fortune's Weave | PokeDinner | None | Initial support, explicitly "not ready" |
+| Fire Emblem Fortune's Weave | **Fortune's Eden** (Windows) | PokeDinner | Fortune's Eden: a Windows build made for this game, full source on GitHub, independent reports of 30 FPS at startup on an RTX 4060 and 60 FPS (patch) on an RTX 5070 Ti, including the heavy area once its shader fix landed in v1.6.7.3. PokeDinner: initial support, explicitly "not ready" |
 
 Game names are used only to describe compatibility targets. No game files, keys or firmware are hosted or linked here.
 
@@ -448,3 +460,5 @@ python -I scripts/reports.py validate
 | 2026-11-06 | Added Anka, a new Windows performance fork, with its self-reported DK result, source audit and caveats. Not a first pick. |
 | 2026-11-07 | Updated Lichii to build 88+ and build 94/95, added the Eglantine OoT and rc1 regressions, and added nxnative for macOS native builds. |
 | 2026-11-07 | Scraped 202 public Lichii compatibility reports into data/lichii-reports.json, with a generated summary page and CI check. |
+| 2026-11-10 | Added Fortune's Eden (TheSneakyBadger), a Windows build for Fire Emblem Fortune's Weave with full source on GitHub, and made it the Fire Emblem first pick on Windows. |
+| 2026-11-11 | Fortune's Eden entry updated for v1.6.7.4: built-in 60 FPS mode that follows the real frame rate, Performance page, video memory fixes for long sessions. |

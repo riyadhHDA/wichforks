@@ -265,6 +265,23 @@
       "stars_at_check": 13207,
       "confidence": "source-only",
       "notes": "Not an emulator: the game's own code runs on Apple silicon and NVN is rebuilt on Metal. Switch 2 support since 31 Oct; seven games listed: DK Bananza, Splatoon Raiders, Fire Emblem Fortune's Weave, Pokemon Pokopia, Hyrule Warriors, Mario Kart World and Mario Tennis Fever. Mac only; iPhone and iPad are untested for Switch 2. Builds a Mac app from one .nup file or a game folder; the NUP path does not need prod.keys. Requires macOS 26.6+, Xcode 27.2, Homebrew and Python 3.12+; first build is 30-60 minutes. No release assets at check. macOS counterpart to Banana Native."
+    },
+    {
+      "id": "fortunes-eden",
+      "name": "Fortune's Eden (TheSneakyBadger)",
+      "repo": "https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch",
+      "releases": "https://github.com/TheSneakyBadger/FEFW-Stable-with-60-FPS-Patch/releases",
+      "host": "GitHub",
+      "role": "Fire Emblem Fortune's Weave build",
+      "platforms": ["Windows 10/11 x64"],
+      "gpu": ["NVIDIA", "AMD", "Intel"],
+      "best_for": ["Fire Emblem Fortune's Weave", "portable Windows setup"],
+      "latest_release": { "tag": "v1.6.7.4", "date": "2026-11-11", "prerelease": false },
+      "license": "GPL-3.0",
+      "source_in_repo": true,
+      "stars_at_check": 131,
+      "confidence": "community-reported",
+      "notes": "Portable Windows build for Fire Emblem Fortune's Weave, based on Duck912's eden-ns2-fe and xDarkWindx's eden-fefw 1.12, with the NUP loader and DLSS work from Eglantine. Plays loose files or a .nup. The upscaler replaces the game's own DLSS pass: AMD FSR 3.1 (default, any GPU), AMD FSR 4 (RX 6000/7000/9000) or NVIDIA DLSS (RTX; files fetched from NVIDIA), with quality modes from Native to Performance. HDR10 output, optional 21:9 ultrawide patch, built-in 60 FPS mode (off by default; the game runs at 30 on Switch 2), which since v1.6.7.4 follows the real frame rate between 30 and 60 FPS instead of forcing 60; a Performance page lightens reflections, ambient occlusion and crowd detail. AV1 cutscenes decoded with dav1d across all CPU threads. Mouse mode (v1.6.7.3): the PC mouse drives the game's Joy-Con mouse cursor. PGO build trained on the game. Built-in updater checks the release SHA-256. Full source with history on the repo's source branch; each release also as a source-v<version> branch and source.zip. Independent reports on the project issue tracker (#13, #27; #27's reporter found a shader bug fixed in v1.6.7.3, after which their log held 60 FPS with the patch in 89 of 103 ten-second windows). Open: one heavy cutscene (#22); v1.6.7.4 fixes video memory creeping up over long sessions, linked by the maintainer to a reported gradual slowdown, not yet confirmed by players. Needs 16 GB RAM and a large pagefile for the 12 GB memory layout."
     }
   ]
 }
