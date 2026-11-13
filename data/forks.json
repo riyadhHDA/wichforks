@@ -265,6 +265,23 @@
       "stars_at_check": 13207,
       "confidence": "source-only",
       "notes": "Not an emulator: the game's own code runs on Apple silicon and NVN is rebuilt on Metal. Switch 2 support since 31 Oct; seven games listed: DK Bananza, Splatoon Raiders, Fire Emblem Fortune's Weave, Pokemon Pokopia, Hyrule Warriors, Mario Kart World and Mario Tennis Fever. Mac only; iPhone and iPad are untested for Switch 2. Builds a Mac app from one .nup file or a game folder; the NUP path does not need prod.keys. Requires macOS 26.6+, Xcode 27.2, Homebrew and Python 3.12+; first build is 30-60 minutes. No release assets at check. macOS counterpart to Banana Native."
+    },
+    {
+      "id": "guarana",
+      "name": "Guarana (karimalsalah)",
+      "repo": "https://github.com/karimalsalah/guarana",
+      "releases": "https://github.com/karimalsalah/guarana/releases",
+      "host": "GitHub",
+      "role": "Intel Arc and AMD iGPU fork of Lichii, with a Windows installer",
+      "platforms": ["Windows"],
+      "gpu": ["Intel", "AMD"],
+      "best_for": ["Intel Arc laptops and handhelds", "Ocarina of Time on an integrated GPU", "one-click Windows install and update"],
+      "latest_release": { "tag": "v20.1.0", "date": "2026-11-13", "prerelease": false },
+      "license": "GPL-3.0",
+      "source_in_repo": true,
+      "stars_at_check": 2,
+      "confidence": "documented",
+      "notes": "Fork of Lichii, created 13 Nov 2026, GPL-3.0-or-later with the full source in the repo. Tuned for integrated GPUs: even frame pacing, frame generation and shader warm-up. v20.1 adds Guarana Setup, a per-user Windows installer and launcher that installs and updates the emulator. Measured on one laptop only (Core Ultra 9 285H, Arc 140T, driver 32.0.101.9175, 120 Hz): on the Ocarina of Time title screen 100% of frames land within 2 ms of the median with frame generation on, and 75% in Hyrule Field against 33-54% before; the README labels this a single-device result. No AMD or other Intel numbers yet. AI-assisted development is disclosed in docs/AI_POLICY.md. Shares %APPDATA%\\lichii with upstream Lichii unless a user folder is placed next to the exe. Not a first pick: new project, one device measured."
     }
   ]
 }
