@@ -19,6 +19,7 @@ Checked 7 Nov 2026 against the GitHub, Forgejo and GitLab APIs. A project is aud
 | [eden-nx2-android](https://git.eden-emu.dev/moceure/eden-nx2-android) | GPL-3.0 | Yes, LICENSE.txt and src | Tags | Forgejo | Unmaintained, points to Banana Native |
 | [Banana Native](https://github.com/moceure/BananaNative) | MIT (repo); GPL-3.0-or-later (release notes) | Yes, android and dm source | APK | Active | Auditable source, license metadata inconsistent |
 | [nxnative](https://github.com/seedds/nxnative) | MIT | Yes, dm and scripts source | No release assets at check | Active | Auditable source; macOS native port, not an emulator |
+| [Mvii7/Dozer](https://github.com/Mvii7/Dozer) | GPL-3.0 | Yes, src and CMakeLists | Windows zip, Linux AppImage, macOS zip, SHA256SUMS | New | Auditable |
 | [ZendNevs/Eglantine-ZendNevs](https://github.com/ZendNevs/Eglantine-ZendNevs) | None | No, only README and a workflow | Binaries plus source zip | 2 commits | Source zip only, no license |
 | [Eglantine 3060Ti 16GB](https://github.com/astralbeexd/Eglantine-3060Ti-16GB) | GPL-3.0 | No, patch set only | Binary zip and hash | Small | Patch set, binary release |
 

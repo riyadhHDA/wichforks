@@ -265,6 +265,23 @@
       "stars_at_check": 13207,
       "confidence": "source-only",
       "notes": "Not an emulator: the game's own code runs on Apple silicon and NVN is rebuilt on Metal. Switch 2 support since 31 Oct; seven games listed: DK Bananza, Splatoon Raiders, Fire Emblem Fortune's Weave, Pokemon Pokopia, Hyrule Warriors, Mario Kart World and Mario Tennis Fever. Mac only; iPhone and iPad are untested for Switch 2. Builds a Mac app from one .nup file or a game folder; the NUP path does not need prod.keys. Requires macOS 26.6+, Xcode 27.2, Homebrew and Python 3.12+; first build is 30-60 minutes. No release assets at check. macOS counterpart to Banana Native."
+    },
+    {
+      "id": "dozer",
+      "name": "Dozer (Mvii7)",
+      "repo": "https://github.com/Mvii7/Dozer",
+      "releases": "https://github.com/Mvii7/Dozer/releases",
+      "host": "GitHub",
+      "role": "Tuned for Donkey Kong Bananza and Mario Kart World",
+      "platforms": ["Windows", "Linux", "macOS (arm64, experimental)"],
+      "gpu": ["NVIDIA", "AMD"],
+      "best_for": ["Donkey Kong Bananza", "Mario Kart World"],
+      "latest_release": { "tag": "v0.1.5", "date": "2026-11-17", "prerelease": false },
+      "license": "GPL-3.0",
+      "source_in_repo": true,
+      "stars_at_check": 1,
+      "confidence": "documented",
+      "notes": "Derived from Anka 1.0.1, which is derived from PokeDinner-Eglantine 2.0.0. Windows zip, Linux AppImage and experimental macOS arm64 zip. Qt menu program plus a CLI, portable mode, GPU-thread and frame-pacing changes behind EDEN_NX2_* switches. Binaries are unsigned."
     }
   ]
 }

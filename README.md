@@ -21,8 +21,8 @@ The page is ordered by what people ask first: which fork to use, what has been t
 |---|---|---|
 | Windows/Linux, NVIDIA, first install | [**Djihads80/Eglantine**](https://github.com/Djihads80/Eglantine/releases) ★ | The central upstream: most tested, most builds, all-round compatibility |
 | AMD GPU (RDNA2+) | [MythosOfs/Orchid](https://github.com/MythosOfs/Orchid/releases) | Independent fork with AMD-focused shader and GPU fixes; developed on an RX 9070 XT |
-| Mario Kart World above all | [SmileyTatsu/Eglantine](https://github.com/SmileyTatsu/Eglantine/releases) | Recent builds 11/12; 45-50 FPS average and near 60 on AMD docked in independent reports |
-| Donkey Kong Bananza | [selevet-eglantine](https://github.com/sylvieistaken/selevet-eglantine/releases) or [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases) | Selevet: 30 FPS cap and 60 smooth motion; PokeDinner 2.5: 30 FPS option on AMD |
+| Mario Kart World above all | [SmileyTatsu/Eglantine](https://github.com/SmileyTatsu/Eglantine/releases) or [Dozer](https://github.com/Mvii7/Dozer/releases) | Recent builds 11/12; 45-50 FPS average and near 60 on AMD docked in independent reports; Dozer: 40-60 FPS on a 5700X3D and RTX 5070 Ti (driver 621.01) with dynamic frame rate |
+| Donkey Kong Bananza | [selevet-eglantine](https://github.com/sylvieistaken/selevet-eglantine/releases) or [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases) or [Dozer](https://github.com/Mvii7/Dozer/releases) | Selevet: 30 FPS cap and 60 smooth motion; PokeDinner 2.5: 30 FPS option on AMD; Dozer: 30-60 FPS on a 5700X3D and RTX 5070 Ti (driver 621.01) with dynamic frame rate |
 | Pokémon Pokopia | [notsapinho/Eglantine](https://github.com/notsapinho/Eglantine/releases) or [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases) | Both list Pokopia as a target; notsapinho calls it playable |
 | Splatoon Raiders | [PokeDinner](https://git.eden-emu.dev/Franseven/PokeDinner-a-Eglantine-Fork/releases) | Textbox, texture and HDR fixes |
 | Online play (MKW, Splatoon Raiders) | [Droplet](https://gitlab.com/seighttt/droplet/-/releases) | Private Reservoir servers for online and LAN; emulators only |
@@ -234,6 +234,14 @@ The presets are Recommended, Recommended + Reactive Flushing, Safe and Custom. G
 
 Caveats: one release, 7 stars, one measured game and one PC, and most code and commit messages are AI-assisted under the maintainer's direction. There are no independent reports yet. Treat the DK numbers as a promising self-report, not a verified first pick. The DK pick remains Selevet perf 3/4 or PokeDinner 2.5.
 
+### Dozer (Mvii7): tuned for DK Bananza and MKW
+
+Windows, Linux and experimental macOS arm64 builds. NVIDIA and AMD. GPL-3.0, full source in the repo. Documented.
+
+Dozer is derived from Anka 1.0.1, which is derived from PokeDinner-Eglantine 2.0.0. It is tuned for Donkey Kong Bananza and Mario Kart World; other games may work but are not supported. Latest at check: v0.1.5 (17 Nov 2026) with a Windows zip, a Linux AppImage, an experimental macOS arm64 zip and SHA256SUMS.txt. The builds are unsigned.
+
+It ships a Qt menu program (dozer.exe on Windows) with a Tuning tab, and a CLI with launchers that apply the same settings. It runs in portable mode: settings, keys, firmware and saves stay in its own `user` folder. Most changes sit behind `EDEN_NX2_*` switches, listed in the repo's changelog and `dist/nx2_switches.txt`.
+
 ### nxnative: macOS native port
 
 macOS 26.6+ on Apple silicon. MIT, source in repo. Not an emulator.
@@ -275,9 +283,9 @@ A missing license or a source zip without a source tree matters: ZendNevs declar
 
 | Game | First pick | Also try | Evidence |
 |---|---|---|---|
-| Mario Kart World | SmileyTatsu | Djihads80; Orchid (AMD); ZendNevs (release-only, caution) | Smiley build 11/12 recent reports; ZendNevs 56 FPS is self-reported from a 2-commit repo |
+| Mario Kart World | SmileyTatsu | Dozer; Djihads80; Orchid (AMD); ZendNevs (release-only, caution) | Smiley build 11/12 recent reports; Dozer: 40-60 FPS on a 5700X3D and RTX 5070 Ti (driver 621.01) with dynamic frame rate; ZendNevs 56 FPS is self-reported from a 2-commit repo |
 | Mario Kart World (online) | Droplet + Reservoir | SmileyTatsu for offline | Private NPLN replacement, self-hosted server, emulators only |
-| Donkey Kong Bananza | Selevet perf 3/4 or PokeDinner 2.5 | ZendNevs (release-only, caution); Lichii | Selevet: 30 cap and 60 smooth on 5700X3D/5070Ti; PokeDinner 2.5: 30 FPS option on 9600X/6800 |
+| Donkey Kong Bananza | Selevet perf 3/4 or PokeDinner 2.5 | Dozer; ZendNevs (release-only, caution); Lichii | Selevet: 30 cap and 60 smooth on 5700X3D/5070Ti; PokeDinner 2.5: 30 FPS option on 9600X/6800; Dozer: 30-60 FPS on a 5700X3D and RTX 5070 Ti (driver 621.01) with dynamic frame rate |
 | Pokémon Pokopia | notsapinho | PokeDinner | notsapinho: 120fps mod and 80+ FPS on an RTX 4060 Mobile; PokeDinner for invisible-item and sky fixes |
 | Splatoon Raiders | PokeDinner | Djihads80; notsapinho | PokeDinner textbox, texture and HDR fixes; upstream says variable performance |
 | Splatoon Raiders (online) | Droplet + Reservoir | PokeDinner for offline | Private NPLN replacement; sky bug after beach load |
@@ -402,6 +410,7 @@ All links checked 5-7 Nov 2026. Release metadata read from the GitHub and Forgej
 - Hyrule Warriors and nx2-merged: [rdenno/Eglantine](https://github.com/rdenno/Eglantine), [releases](https://github.com/rdenno/Eglantine/releases)
 - Android: [Banana Native](https://github.com/moceure/BananaNative), [releases](https://github.com/moceure/BananaNative/releases). The old [eden-nx2-android](https://git.eden-emu.dev/moceure/eden-nx2-android) is unmaintained and points here.
 - macOS native: [nxnative](https://github.com/seedds/nxnative)
+- DK Bananza and MKW build: [Mvii7/Dozer](https://github.com/Mvii7/Dozer), [releases](https://github.com/Mvii7/Dozer/releases)
 - Zen 3 build: [selevet-eglantine](https://github.com/sylvieistaken/selevet-eglantine), [releases](https://github.com/sylvieistaken/selevet-eglantine/releases)
 - Frame-gen build: [ZendNevs/Eglantine-ZendNevs](https://github.com/ZendNevs/Eglantine-ZendNevs), [releases](https://github.com/ZendNevs/Eglantine-ZendNevs/releases)
 - PS5 port: [heydemoura/EglantinePS5](https://github.com/heydemoura/EglantinePS5)
@@ -448,3 +457,4 @@ python -I scripts/reports.py validate
 | 2026-11-06 | Added Anka, a new Windows performance fork, with its self-reported DK result, source audit and caveats. Not a first pick. |
 | 2026-11-07 | Updated Lichii to build 88+ and build 94/95, added the Eglantine OoT and rc1 regressions, and added nxnative for macOS native builds. |
 | 2026-11-07 | Scraped 202 public Lichii compatibility reports into data/lichii-reports.json, with a generated summary page and CI check. |
+| 2026-11-17 | Added Dozer (Mvii7), a fork tuned for DK Bananza and MKW, to the fork picker, forks section, game matrix and source audit. |
